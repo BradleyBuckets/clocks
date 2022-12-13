@@ -1,0 +1,44 @@
+
+.browser {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock {
+    height: 30rem;
+    width: 30rem;
+    border: 20px solid black;
+    border-radius: 50%;
+    position: relative;
+}
+
+.hand {
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0%;
+    border-radius: 3px 0 0 3px;
+    transition: 0.5s;
+    transition-timing-function: cubic-bezier(0.28, 2.68, 0.58, 1);
+}
+
+.second {
+    width: 48%;
+    background-color: firebrick;
+    transform: rotate(45deg);
+}
+
+.minute {
+    width: 40%;
+    background-color: gray;
+    transform: rotate(90deg);
+}
+.hour {
+    width: 30%;
+    background-color: black;
+    transform: rotate(120deg);
+}
