@@ -35,10 +35,10 @@
 .minute {
     width: 40%;
     background-color: gray;
-    transform: rotate(90deg);
+    transform: rotate(270deg);
 }
 .hour {
     width: 30%;
     background-color: black;
-    transform: rotate(120deg);
+    transform: rotate(270deg);
 }
