@@ -1,0 +1,20 @@
+.browser {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock {
+    width: 40vw;
+    height: 10vw;
+    border: 1rem solid black;
+    border-radius: 2vw;
+    font-size: 8vw;
+    gap: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
