@@ -5,6 +5,9 @@ let minuteSpan = document.querySelector(".minute");
 let easy = document.querySelector(".easy");
 let medium = document.querySelector(".medium");
 let hard = document.querySelector(".hard");
+let stopBtn = document.querySelector(".stop");
+let clearBtn = document.querySelector(".clear");
+let resumeBtn = document.querySelector(".resume");
 
 // to begin, we have both minutes and seconds
 let seconds = 0
@@ -16,6 +19,8 @@ let interval = null
 function countDown() {
     // decrease seconds
     seconds--;
+    // check to see if timer should go off
+    checkAlarm();
     // after zero, restart to 59 and decrese minutes
     if (seconds < 0){
         seconds = 59;
@@ -23,8 +28,6 @@ function countDown() {
     }
     console.log(seconds)
     console.log(minutes)
-    // check to see if timer should go off
-    checkAlarm();
 
 }
 
@@ -33,7 +36,7 @@ function checkAlarm() {
     // cheeck to see if timer is at zero
     if (seconds <= 0 && minutes <= 0) {
         // turn of count down
-        clearInterval(interval);
+        stop();
         // ring alarm
         alert("The time has gone off!!!");
     }
@@ -42,12 +45,12 @@ function checkAlarm() {
 // set the timer
 function setTimer(minute, second) {
     // clear any existing timer
-    clearInterval(interval)
+    stop();
     // set timer
     seconds = second;
     minutes = minute;
     // beggin the count down
-    interval = setInterval(countDown, 1000);
+    start();
 }
 
 // different versions of setTimer
@@ -61,7 +64,24 @@ function hardTimer() {
     setTimer(45, 0)
 }
 
+// pause the timer 
+function stop() {
+    clearInterval(interval)
+}
+// reset the timer
+function clear() {
+    seconds = 0;
+    minutes = 0;
+}
+// start the countdown
+function start() {
+    interval = setInterval(countDown, 1000)
+}
+
 // add functionality to button
 easy.addEventListener('click', easyTimer)
 medium.addEventListener('click', medTimer)
 hard.addEventListener('click', hardTimer)
+stopBtn.addEventListener('click', stop)
+clearBtn.addEventListener('click', clear)
+resumeBtn.addEventListener('click', start)
