@@ -9,6 +9,8 @@ let hard = document.querySelector(".hard");
 // to begin, we have both minutes and seconds
 let seconds = 13
 let minutes = 0
+// use this variable to toggle on and off the interval
+let interval = null
 
 // decrease seconds to 0 and then restart at 59
 function countDown() {
@@ -34,4 +36,17 @@ function checkAlarm() {
     }
 }
 
-// setInterval(countDown, 1000)
+// set the timer
+function setTimer(minute, second) {
+    clearInterval(interval)
+    seconds = second;
+    minutes = minute;
+    interval = setInterval(countDown, 1000);
+}
+
+// easy version of setTimer
+function easyTimer() {
+    setTimer(5, 0)
+}
+
+easy.addEventListener('click', easyTimer)
