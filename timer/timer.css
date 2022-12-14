@@ -32,6 +32,12 @@
     text-align: center;
 }
 
+.buttonWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+}
+
 .buttons {
     width: 40vw;
     display: flex;
@@ -42,4 +48,9 @@ button {
     height: 5vw;
     width: 10vw;
     font-size: 2vw;
+}
+
+.otherButtons {
+    display: flex;
+    justify-content: space-around;
 }
