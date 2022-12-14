@@ -26,19 +26,33 @@ function countDown() {
         seconds = 59;
         minutes--;
     }
-    console.log(seconds)
-    console.log(minutes)
+    // show changes on the screen
+    setTextContent()
+}
 
+// update and change the screen
+function setTextContent(){
+    // add extra 0 to single digit numbers
+    if (seconds < 10) {
+        secondSpan.textContent = '0' + seconds;
+    }
+    else secondSpan.textContent = seconds
+
+    if (minutes < 10) {
+        minuteSpan.textContent = '0' + minutes;
+    }
+    else minuteSpan.textContent = minutes
 }
 
 // check to see if the timer is at zero and sound alarm
 function checkAlarm() {
     // cheeck to see if timer is at zero
     if (seconds <= 0 && minutes <= 0) {
-        // turn of count down
-        stop();
         // ring alarm
         alert("The time has gone off!!!");
+        // turn of count down
+        clear();
+
     }
 }
 
@@ -56,12 +70,15 @@ function setTimer(minute, second) {
 // different versions of setTimer
 function easyTimer() {
     setTimer(15, 0)
+    setTextContent()
 }
 function medTimer() {
     setTimer(30, 0)
+    setTextContent()
 }
 function hardTimer() {
     setTimer(45, 0)
+    setTextContent()
 }
 
 // pause the timer 
@@ -70,8 +87,10 @@ function stop() {
 }
 // reset the timer
 function clear() {
+    stop()
     seconds = 0;
     minutes = 0;
+    setTextContent()
 }
 // start the countdown
 function start() {
