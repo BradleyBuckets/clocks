@@ -7,7 +7,7 @@ let medium = document.querySelector(".medium");
 let hard = document.querySelector(".hard");
 
 // to begin, we have both minutes and seconds
-let seconds = 13
+let seconds = 0
 let minutes = 0
 // use this variable to toggle on and off the interval
 let interval = null
@@ -32,21 +32,36 @@ function countDown() {
 function checkAlarm() {
     // cheeck to see if timer is at zero
     if (seconds <= 0 && minutes <= 0) {
-        alert("The time has gone off!!!")
+        // turn of count down
+        clearInterval(interval);
+        // ring alarm
+        alert("The time has gone off!!!");
     }
 }
 
 // set the timer
 function setTimer(minute, second) {
+    // clear any existing timer
     clearInterval(interval)
+    // set timer
     seconds = second;
     minutes = minute;
+    // beggin the count down
     interval = setInterval(countDown, 1000);
 }
 
-// easy version of setTimer
+// different versions of setTimer
 function easyTimer() {
-    setTimer(5, 0)
+    setTimer(15, 0)
+}
+function medTimer() {
+    setTimer(30, 0)
+}
+function hardTimer() {
+    setTimer(45, 0)
 }
 
+// add functionality to button
 easy.addEventListener('click', easyTimer)
+medium.addEventListener('click', medTimer)
+hard.addEventListener('click', hardTimer)
